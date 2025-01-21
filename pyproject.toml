@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "module-template"
+name = "firecrawl-agent"
 version = "0.1.0"
-description = ""
-authors = ["Richard Blythman <richardblythman@gmail.com>"]
+description = "Firecrawl Agent"
+authors = ["Dean <dean@aidevmode.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
