@@ -26,13 +26,17 @@ class FirecrawlAgent:
             signature=sign_consumer_id(module_run.consumer_id, os.getenv("PRIVATE_KEY"))
         )
         tool_response = await self.tool.call_tool_func(tool_run_input)
-        return tool_response
+        print("Tool response: ", tool_response)
+        logger.info("Tool response: ", tool_response)
+        return tool_response.results
 
 async def run(module_run: Dict, *args, **kwargs):
     module_run = AgentRunInput(**module_run)
     module_run.inputs = InputSchema(**module_run.inputs)
     firecrawl_agent = FirecrawlAgent(module_run.deployment)
+    
     tool_response = await firecrawl_agent.call_tool(module_run)
+
     return tool_response
 
 if __name__ == "__main__":
@@ -53,14 +57,14 @@ if __name__ == "__main__":
     # Example: Scraping a website
     input_params = {
         "tool_name": "scrape_website",
-        "tool_input_data": "https://docs.firecrawl.dev"
+        "tool_input_data": "https://naptha.ai/"
     }
 
     # Example: Extracting specific data
     # input_params = {
     #     "tool_name": "extract_data",
-    #     "tool_input_data": "https://docs.firecrawl.dev",
-    #     "query": "Extract the API rate limits"
+    #     "tool_input_data": "https://naptha.ai/",
+    #     "query": "Extract the company mission from the page."
     # }
 
     module_run = {
@@ -71,4 +75,5 @@ if __name__ == "__main__":
     }
 
     response = asyncio.run(run(module_run))
+    
     print("Response: ", response)
