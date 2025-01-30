@@ -2,7 +2,7 @@
   {
     "name": "tool_deployment_1",
     "module": { "name": "firecrawl_tool" },
-    "node": { "ip": "localhost" },
+    "node": { "ip": "node.naptha.ai" },
     "config": {
       "config_name": "tool_config_1",
       "llm_config": { "config_name": "model_1" }
