@@ -4,7 +4,7 @@
     "module": {
       "name": "firecrawl_agent",
       "description": "Firecrawl Agent Module",
-      "parameters": "{tool_name: str, tool_input_data: str}",
+      "parameters": "{tool_name: str, tool_input_data: str, query: str}",
       "module_type": "agent",
       "module_version": "v0.1",
       "module_entrypoint": "run.py",
