@@ -1,7 +1,15 @@
 [
   {
     "name": "agent_deployment_1",
-    "module": { "name": "firecrawl_agent" },
+    "module": {
+      "name": "firecrawl_agent",
+      "description": "Firecrawl Agent Module",
+      "parameters": "{tool_name: str, tool_input_data: str}",
+      "module_type": "agent",
+      "module_version": "v0.1",
+      "module_entrypoint": "run.py",
+      "execution_type": "package"
+    },
     "node": { "ip": "localhost" },
     "config": {
       "config_name": "agent_config_1",
